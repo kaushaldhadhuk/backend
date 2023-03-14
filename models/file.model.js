@@ -6,7 +6,7 @@ const fileSchema = mongoose.Schema({
   },
   p_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "properties",
+    ref: "products",
   },
 });
 
