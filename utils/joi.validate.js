@@ -44,6 +44,7 @@ module.exports = {
             pincode: Joi.number().allow(null, ""),
             country: Joi.string(),
             phone: Joi.number().allow(null, ""),
+            image: Joi.string()
         });
 
         let { error } = schema.validate(req.body);
@@ -176,22 +177,6 @@ module.exports = {
             next();
         }
     },
-    validatation4addcolor: (req, res, next) => {
-        let schema = Joi.object().keys({
-            name: Joi.string().required(),
-            categoryId: Joi.string().required()
-        });
-
-        let { error } = schema.validate(req.body);
-
-        if (error) {
-            return res
-                .status(enums.HTTP_CODE.BAD_REQUEST)
-                .json({ success: false, message: error.details[0].message });
-        } else {
-            next();
-        }
-    },
     validatation4createvendor: (req, res, next) => {
         let schema = Joi.object().keys({
             bankName: Joi.string().required(),
@@ -213,6 +198,165 @@ module.exports = {
         let schema = Joi.object().keys({
             email: Joi.string().email().required(),
             password: Joi.string().required()
+        });
+
+        let { error } = schema.validate(req.body);
+
+        if (error) {
+            return res
+                .status(enums.HTTP_CODE.BAD_REQUEST)
+                .json({ success: false, message: error.details[0].message });
+        } else {
+            next();
+        }
+    },
+    validatation4addProduct: (req, res, next) => {
+        let schema = Joi.object().keys({
+            categoryId: Joi.string().required(),
+            subCategoryId: Joi.string().required(),
+            vendorPhone: Joi.number().required(),
+            propertyName: Joi.string().required(),
+            propertyType: Joi.string(),
+            propertyArea: Joi.string().required(),
+            propertyAddress: Joi.string().required(),
+            propertyCity: Joi.string().required(),
+            propertyImage: Joi.string().required(),
+            propertyState: Joi.string().required(),
+            propertyFloor: Joi.number().allow(null, ""),
+            propertyOldYear: Joi.string().allow(null, ""),
+            propertyAvailableFrom: Joi.date().required(),
+            propertyAgreement: Joi.string().required(),
+            isFurnished: Joi.boolean().required(),
+            isParking: Joi.boolean().required(),
+            price: Joi.string().required(),
+            description: Joi.string().required()
+        });
+
+        let { error } = schema.validate(req.body);
+
+        if (error) {
+            return res
+                .status(enums.HTTP_CODE.BAD_REQUEST)
+                .json({ success: false, message: error.details[0].message });
+        } else {
+            next();
+        }
+    },
+    validatation4updateProduct: (req, res, next) => {
+        let schema = Joi.object().keys({
+            vendorPhone: Joi.number(),
+            propertyName: Joi.string(),
+            propertyType: Joi.string(),
+            propertyArea: Joi.string(),
+            propertyAddress: Joi.string(),
+            propertyCity: Joi.string(),
+            propertyImage: Joi.string(),
+            propertyState: Joi.string(),
+            propertyFloor: Joi.number(),
+            propertyOldYear: Joi.string(),
+            propertyAvailableFrom: Joi.date(),
+            propertyAgreement: Joi.string(),
+            isFurnished: Joi.boolean(),
+            isParking: Joi.boolean(),
+            price: Joi.string(),
+            description: Joi.string(),
+            status: Joi.string()
+        });
+
+        let { error } = schema.validate(req.body);
+
+        if (error) {
+            return res
+                .status(enums.HTTP_CODE.BAD_REQUEST)
+                .json({ success: false, message: error.details[0].message });
+        } else {
+            next();
+        }
+    },
+    validate4productStatus: (req, res, next) => {
+        let schema = Joi.object().keys({
+            id: Joi.string().required(),
+            status: Joi.string().required()
+        });
+
+        let { error } = schema.validate(req.query);
+
+        if (error) {
+            return res
+                .status(enums.HTTP_CODE.BAD_REQUEST)
+                .json({ success: false, message: error.details[0].message });
+        } else {
+            next();
+        }
+    },
+    validatation4addBlog: (req, res, next) => {
+        let schema = Joi.object().keys({
+            title: Joi.string().required(),
+            desc: Joi.string().required(),
+            image: Joi.string().required(),
+            author: Joi.string().required()
+        });
+
+        let { error } = schema.validate(req.body);
+
+        if (error) {
+            return res
+                .status(enums.HTTP_CODE.BAD_REQUEST)
+                .json({ success: false, message: error.details[0].message });
+        } else {
+            next();
+        }
+    },
+    validatation4updateBlog: (req, res, next) => {
+        let schema = Joi.object().keys({
+            title: Joi.string(),
+            desc: Joi.string(),
+            image: Joi.string(),
+            author:Joi.string()
+        });
+
+        let { error } = schema.validate(req.body);
+
+        if (error) {
+            return res
+                .status(enums.HTTP_CODE.BAD_REQUEST)
+                .json({ success: false, message: error.details[0].message });
+        } else {
+            next();
+        }
+    },
+    validatation4addservice: async (req, res, next) => {
+        let schema = Joi.object().keys({
+            companyName: Joi.string().required(),
+            companyAddress: Joi.string().required(),
+            serviceType: Joi.string().required(),
+            image: Joi.string().required(),
+            time: Joi.string().required(),
+            price: Joi.string().required(),
+            discPrice: Joi.string().required(),
+            phone: Joi.string().required()
+        });
+
+        let { error } = schema.validate(req.body);
+
+        if (error) {
+            return res
+                .status(enums.HTTP_CODE.BAD_REQUEST)
+                .json({ success: false, message: error.details[0].message });
+        } else {
+            next();
+        }
+    },
+    validatation4updateservice: async (req, res, next) => {
+        let schema = Joi.object().keys({
+            companyName: Joi.string(),
+            companyAddress: Joi.string(),
+            serviceType: Joi.string(),
+            image: Joi.string(),
+            time: Joi.string(),
+            price: Joi.string(),
+            discPrice: Joi.string(),
+            phone: Joi.string()
         });
 
         let { error } = schema.validate(req.body);

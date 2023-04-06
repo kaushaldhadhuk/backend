@@ -50,8 +50,9 @@ module.exports = {
             }
 
             const data = {
-                _id: user._id,
-                role: user.role.role
+                id: user._id,
+                role: user.role.role,
+                email: user.email
             }
             const token = jwt.sign(data, process.env.JWT_SECRET);
             return res

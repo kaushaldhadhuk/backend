@@ -32,5 +32,20 @@
 	"COLOR_NOT_FOUND":"Color not found.",
 	"DELETE_COLOR":"Delete color successfully.",
 	"VENDOR_CREATED":"You are now a Vendor.",
-	"SUPER_ADMIN_CREATE":"Super Admin created successfully."
+	"SUPER_ADMIN_CREATE":"Super Admin created successfully.",
+	"NOT_FOUND":"Data not found.",
+	"PRODUCT_ADDED":"Product added successfully.",
+	"INVALID_FILE_TYPE":"Invalid file type.",
+	"INVALID_FILE_SIZE":"Image size less then 1 MB.",
+	"IMAGE_REQUIRE":"Image is required.",
+	"PRODUCT_NOT_FOUND":"Product not found.",
+	"BLOG_ADDED":"Blog added successfully.",
+	"BLOG_UPDATED":"Blog updated successfully,",
+	"BLOG_DELETED":"Blog deleted successfully.",
+	"SUCCESS":"Success",
+	"SERVICE_EXISTS": "Service already exists.",
+	"SERVICE_ADDED": "Service added successfully.",
+	"SERVICE_UPDATED":"Service updated successfully.",
+	"SERVICE_DELETED":"Service deleted successfully.",
+	"SERVICE_NOT_FOUND":"Service not found."
 }
