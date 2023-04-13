@@ -220,7 +220,7 @@ module.exports = {
             propertyArea: Joi.string().required(),
             propertyAddress: Joi.string().required(),
             propertyCity: Joi.string().required(),
-            propertyImage: Joi.string().required(),
+            propertyImage: Joi.array().required(),
             propertyState: Joi.string().required(),
             propertyFloor: Joi.number().allow(null, ""),
             propertyOldYear: Joi.string().allow(null, ""),
@@ -228,7 +228,7 @@ module.exports = {
             propertyAgreement: Joi.string().required(),
             isFurnished: Joi.boolean().required(),
             isParking: Joi.boolean().required(),
-            price: Joi.string().required(),
+            price: Joi.number().required(),
             description: Joi.string().required()
         });
 
@@ -250,7 +250,7 @@ module.exports = {
             propertyArea: Joi.string(),
             propertyAddress: Joi.string(),
             propertyCity: Joi.string(),
-            propertyImage: Joi.string(),
+            propertyImage: Joi.array(),
             propertyState: Joi.string(),
             propertyFloor: Joi.number(),
             propertyOldYear: Joi.string(),

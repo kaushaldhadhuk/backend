@@ -58,7 +58,7 @@ module.exports = {
 			const userData = await userSchema.findOne({ email });
 			if (!userData) {
 				return res
-					.status(enums.HTTP_CODE.OK)
+					.status(enums.HTTP_CODE.BAD_REQUEST)
 					.json({ success: false, message: messages.USER_NOT_FOUND });
 			}
 			const userPassword = userData.password;
@@ -168,8 +168,9 @@ module.exports = {
 			)
 			const maildata = {
 				to: email,
-				subject: "Animalll | Forgot your password",
-				otp: otp
+				subject: "Makan | Forgot your password",
+				otp: otp,
+				name:findUser.name
 			}
 
 			mailService(maildata)
